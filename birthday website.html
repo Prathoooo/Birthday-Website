@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Aneeesuuu</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #ffe6f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: #d63384;
+            font-size: 3rem;
+        }
+        p {
+            color: #6c757d;
+            font-size: 1.2rem;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #d63384;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #c2185b;
+        }
+        .falling-petals {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Birthday Aneeesuuu 🎉🎂</h1>
+    <p>Wishing you a day full of love and happiness!</p>
+    <button onclick="playSong()">Play Birthday Song 🎶</button>
+    <script>
+        function playSong() {
+            const audio = new Audio("https://www.youtube.com/watch?v=rQoR6Xma5mo");
+            audio.play();
+        }
+        function createPetal() {
+            const petal = document.createElement("div");
+            petal.innerHTML = "🌹";
+            petal.className = "falling-petals";
+            petal.style.left = Math.random() * 100 + "vw";
+            petal.style.animationDuration = Math.random() * 5 + 3 + "s";
+            document.body.appendChild(petal);
+            setTimeout(() => petal.remove(), 8000);
+        }
+        setInterval(createPetal, 300);
+    </script>
+</body>
+</html>
